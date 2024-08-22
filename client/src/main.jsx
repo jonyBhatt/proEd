@@ -1,10 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import "./index.css";
+import { router } from "./utils/routes.jsx";
+import "@mantine/core/styles.css";
 
-createRoot(document.getElementById('root')).render(
+import { MantineProvider } from "@mantine/core";
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <MantineProvider defaultColorScheme="dark">
+      <RouterProvider router={router} />
+    </MantineProvider>
+  </StrictMode>
+);
